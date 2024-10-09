@@ -1,6 +1,6 @@
 #include<stdio.h> //include header
 #include<stdlib.h>
-#define SIZE 4
+#define SIZE 10
 int top = -1,arr[SIZE];
 // function declaration 
 void push();
@@ -14,7 +14,7 @@ int main() // main function - landing function
    	int choice;
 	do
 	{
-		printf("1.push \n 2.pop \n 3.traversal \n 4.Exit \n");
+		printf("\n 1.push \n 2.pop \n 3.traversal \n 4.Exit \n");
 		printf("\n \n please select your choice");
 		scanf("%d",&choice);
 		switch(choice)
@@ -47,14 +47,14 @@ void push()
 
 	{
 
-		printf("STACH FULL");
+		printf("\n STACk FULL");
 
 	}
 
 	else
 
 	{
-		printf("add your element");
+		printf("\n add your element");
 		scanf("%d",&n);
 		top=top+1;
 		arr[top]=n;
@@ -77,10 +77,11 @@ void pop()
 
 	{
 
-		printf("poped element%d",arr[top]);
+		printf("\n poped element%d",arr[top]);
 		top=top-1;
 
 	}
+}
 
 void traversal()
 
@@ -96,7 +97,7 @@ void traversal()
 	else
 
 	{
-		printf("element in this stack:");
+		printf("\n element in this stack:");
 		for(i=top;i>=0;i--)
 		printf("%d",arr[i]);
 	}
