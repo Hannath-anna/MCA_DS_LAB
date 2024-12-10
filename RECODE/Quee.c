@@ -44,7 +44,7 @@ void nQuee()
 {	
 	int n;
 		
-	if (rear == SIZE - 1)
+	if (rear >= SIZE - 1)
 
 	{
 
