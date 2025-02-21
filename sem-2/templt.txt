@@ -1,0 +1,88 @@
+-- 
+-- Roll No: 17
+-- Name: Fathimathul Hannath
+-- Program: 
+-- 
+
+
+--
+-- Table structure for table books
+--
+
+-- create
+
+create table books(bookid int primary key,title varchar(100) not null,author varchar(50) not null,price decimal(6,2) Default 0.00);
+
+-- alter
+
+-- Add a column "publication_date" (integer)
+
+alter table books add column publication_date date;
+
+-- Modify the "price" column to have a default value of 100.00.
+
+alter table books modify column price decimal(6,2) Default 100.00;
+  
+-- insert
+
+insert into books value(1,'Database Systems','Ramez Elmasri',500.00,'10-10-1976'),(2,'Operating System Concepts','Silberschatz',650.00,'20-11-1950'),(3,'Computer Networks','Andrew S. Tanenbaum',700.00,'17-02-200');
+insert into books(bookid,title,author,publication_date)value(4,'Algorithms','Cormen','2011,01,23');
+
+-- Update the price of the book "Operating System Concepts" to 700.00. 
+
+-- update
+
+update books set price=700.00 where title='Operating System Concepts';
+
+-- Delete the book with "bookid = 3" from the "books" table.  
+
+-- delete
+
+delete from books where bookid=3;
+
+-- Increase the price of all books by 10%. 
+
+-- inrease
+
+update books set price=price*1.1;
+
+
+-- Remove the column "publication_date" from the "books" table.
+
+-- remove
+
+alter table books drop publication_date;
+
+
+--
+-- Table structure for table students
+--
+
+-- create
+
+create table students( studentid int primary key, name varchar(100) not null, course varchar(50) Default 'MCA', age int, check(age>20 and age<40));
+
+-- insert
+
+insert into students value(101,'Midhun k','MCA',22),(102,'Ann mariya','MCA',30),(103,'Sidharth M','MCA',21);
+
+-- remove the "students" table.
+
+-- remove 
+
+drop table students;
+
+
+
+--
+-- Dumping data for table <table_name>
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
