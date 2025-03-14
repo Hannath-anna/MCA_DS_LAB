@@ -1,0 +1,92 @@
+-- 
+-- Roll No: 17
+-- Name: FATHIMATHUL HANNATH
+-- Program: Assingment-2
+-- 
+
+
+--
+-- Table structure for table departments
+--
+
+CREATE TABLE departments (dno INT PRIMARY KEY,dname VARCHAR(50) NOT NULL);
+
+--
+-- Table structure for table bookissues
+--
+
+CREATE TABLE bookissues(bookid INT,studentid INT,issue_date DATE,return_date DATE,fine DECIMAL(5,2) DEFAULT 0.00);
+
+--
+-- Dumping data for table students
+--
+
+--
+-- add column course 
+--
+
+ALTER TABLE students ADD COLUMN course VARCHAR(100);
+
+--
+-- Remove the attribute "course"
+--
+
+ALTER TABLE students DROP COLUMN course;
+
+--
+-- Add a column "dno" of type integer.  
+--
+
+ALTER TABLE students ADD COLUMN dno INT;
+
+--
+-- Add a foreign key constraint to refer the "dno" attribute to "department" table. 
+--
+
+ALTER TABLE students ADD CONSTRAINT fk_dno FOREIGN KEY (dno) REFERENCES department(dno);
+
+
+--
+-- Dumping data for table bookissues
+--
+
+--
+-- Add a composite primary key constraint with attributes "bookid" and "studentid"
+--
+
+ALTER TABLE bookissue ADD CONSTRAINT pk_bookissue PRIMARY KEY (bookid, studentid);
+
+--
+-- Add a foreign key constraint to refer the "bookid" attribute to "books" table.
+--
+
+ALTER TABLE bookissue ADD CONSTRAINT fk_book FOREIGN KEY (bookid) REFERENCES books(bookid);
+
+--
+-- Add a foreign key constraint to refer the "studentid" attribute to "students" table. 
+--
+
+ALTER TABLE bookissue ADD CONSTRAINT fk_studentid FOREIGN KEY (studentid) REFERENCES students(studentid);
+
+
+--
+-- Dumping data for table departments
+--
+
+INSERT INTO departments (dno, dname) VALUES (1, 'MCA');
+
+
+--
+-- Dumping data for table bookissues
+--
+
+INSERT INTO bookissues (bookid, studentid, issue_date, return_date, fine)VALUES(2, 101, '2025-02-10', NULL, 0.00),(1, 102, '2025-02-12', '2025-02-18', 0.00);
+
+--
+-- SQl Query Statements
+--
+
+-- Q7. List all books issued with student details (include attributes studentid, name, bookid, title) 
+
+
+
