@@ -1,0 +1,97 @@
+-- 
+-- Roll No: 17
+-- Name: Fathimathul Hannath
+-- Program: 01
+-- 
+
+
+--
+-- Table structure for table books
+--
+create table books(accno int auto_increment primary key,title varchar(100) unique NOT NULL,author varchar(50) NOT NULL,price float(4,2),type ENUM('lending','reference'),availability ENUM('yes','no'),publisherid int);
+
+--
+-- Dumping data for table <table_name>
+--
+
+insert into books(title,author,price,type,availability,publisherid)values('To Kill a Mockingbird', 'Harper Lee', 12.99, 'lending', 'yes', 3), ('The Catcher in the Rye', 'J.D. Salinger', 11.50, 'lending', 'no', 1), ('Pride and Prejudice', 'Jane Austen', 9.99, 'reference', 'yes', 2), ('Moby Dick', 'Herman Melville', 13.45, 'lending', 'yes',
+4),('the Hobbit','J.R.R. Tolkien',14.20,'lending','no',3);
+
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+--
+-- Table structure for table publishers
+--
+create table publishers(publisherid int auto_increment  primary key, name varchar(50) unique NOT NULL , address varchar(100));
+
+--
+-- Dumping data for table publishers
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+--
+-- Table structure for table members
+--
+create table members (memberid int auto_increment primary key,name varchar(50) NOT NULL,address varchar(100),type ENUM('staff','student'));
+
+--
+-- Dumping data for table members
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+--
+-- Table structure for table issues
+--
+create table issues( issueid int auto_increment primary key,memberid int,accno int,issuedate date,foreign key (memberid) references members(memberid), foreign key (accno) references books(accno));
+
+--
+-- Dumping data for table issues
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+--
+-- Table structure for table returns
+--
+create table returns(returnid int auto_increment primary key,memberid int,accno int,returndate date,fine int default 0 CHECK(fine >= 0));
+
+
+--
+-- Dumping data for table returns
+--
+
+alter table returns add constraint returns_fkey_memberid foreign key(memberid)references members(memberid);
+
+
+alter table returns add constraint returns_fkey_accno foreign key(accno)referenc
+es books(accno);
+
+
+
+--
+-- SQl Query Statements
+--
+
+
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
