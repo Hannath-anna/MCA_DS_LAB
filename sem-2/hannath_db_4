@@ -1,0 +1,6 @@
+ db.orders.insertOne({order_no:01,year:2020,paid:"y",cost:{price:30,currency:"INR"},items:[{pno:"p1",phone:["blue","black"],quantity:15}],delivery_days:5})
+
+
+
+ db.orders.insertOne({order_no:01,year:2020,paid:"y",cost:{price:30,currency:"INR"},items:[{pno:"p2",colors:["white"],quantity:4},{pno:"p3",colors:["white","black"],quantity:1}],delivery_days:4})
+
